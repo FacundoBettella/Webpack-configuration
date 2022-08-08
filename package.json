@@ -1,10 +1,11 @@
 {
-  "name": "js-portfolio",
+  "name": "js-fbi-portfolio",
   "version": "1.0.0",
   "description": "A minimal portfolio with Vanilla JavaScript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -15,14 +16,10 @@
     "html",
     "css"
   ],
-  "author": "oscar barajas <oscar@gndx.dev>",
+  "author": "Facundo bettella facundobettella@outlook.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gndx/js-portfolio/issues"
+    "url": "https://github.com/gndx/js-portfolio"
   },
-  "homepage": "https://github.com/gndx/js-portfolio#readme",
-  "devDependencies": {
-    "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0"
-  }
+  "homepage": "https://github.com/gndx/js-portfolio"
 }

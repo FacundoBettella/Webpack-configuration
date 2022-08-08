@@ -35,9 +35,19 @@ Comando iniciales:
 	Además, el comando nos arrojo un error: "mode' option has not been set" y lo solucionamos con:
 	npx webpack --mode development => Activamos modo desarrollo. Con ello cambia el archivo main.js siendo de utilidad para debuggear (ya que tiene mas información).
 
-	npx webpack --mode production => Hacemos el build pero main.js vuelve a su estado original - sin informacion adicional.
+	npx webpack --mode production => Hacemos el build pero main.js vuelve a su estado original (mimificado) - sin informacion adicional.
 
+Creamos webpack.config.js => Trabajamos aqui todas las configuraciones necesarias para nuestro proyecto. Luego:
+npx webpack --mode production --config webpack.config.js => Para compliar con las configuraciones elegidas.
 
+Ahora creamos nuestro scrip /webpack --mode production/ en packeage.json:
+...
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production"
+  },
+...
+npm run build
 
 
 
