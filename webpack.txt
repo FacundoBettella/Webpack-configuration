@@ -1,0 +1,43 @@
+Webpack: es un paquete de módulos estáticos para aplicaciones de JS modernas
+
+Loader: Te permite hacer un bundle de cualquier recurso estático más allá de JavaScript. Babel(transpilador) se usa como loader.
+
+Plugins: Extienden recursos para añadir configuraciones y particularidades de recursos externos
+
+Webpack construye un gráfico de dependencias que mapea cada módulo para convertirlo en uno o más módulos
+
+Desde webpack 4 ya no dependemos de tener un archivo de configuración, pero si debemos tener un punto de entrada
+Tambien tendremos que tener un punto de salida
+
+En este punto se creará nuestro proyecto una vez esté preparado
+Normalmente es la carpeta dist ⇒ Distribution
+Tambien contamos con diferentes modos
+Modo de desarrollo
+Modo de producción
+Modos de performance
+Donde tu añades
+Configuraciones de minificación
+Donde se va enviar
+Carpeta de destino
+Modos de desarrollo local
+Donde puedes
+Crear puertos específicos para tu proyecto
+Ver cambios en tiempo real
+Dispone de loader y plugins permitiéndonos preparar particularidades de nuestro proyecto
+
+Comando iniciales:
+	npm init -y
+	npm i webpack -D
+	webpack-cli --save-dev (igual a -D)
+
+	npx webpack => Webpack lee el proyecto e identifica todos los archivos js (se lo ve en consola) y crea la carpeta dist con el archivo main.js. Alli se encuentra nuestro codigo fuente optimizado (elimina codigo redundante). 
+
+	Además, el comando nos arrojo un error: "mode' option has not been set" y lo solucionamos con:
+	npx webpack --mode development => Activamos modo desarrollo. Con ello cambia el archivo main.js siendo de utilidad para debuggear (ya que tiene mas información).
+
+	npx webpack --mode production => Hacemos el build pero main.js vuelve a su estado original - sin informacion adicional.
+
+
+
+
+
