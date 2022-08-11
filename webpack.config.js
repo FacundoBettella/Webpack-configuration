@@ -1,4 +1,6 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin"); 
 
 module.exports = {
   /* Punto de entrada a la aplicacion */
@@ -26,6 +28,23 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      {
+        // Revisa las dos extensiones css y styl para aplicar los loaders css y stylus
+        test: /\.css|.styl$/i,
+        use: [
+            MiniCssExtractPlugin.loader, "css-loader", "stylus-loader"
+        ]
+      }
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+        inject: true,
+        // Inyecta el bundle al template HTML
+        template: "./public/index.html",
+        // Nombre final del archivo
+        filename: "./index.html"
+    }),
+    new MiniCssExtractPlugin(),
+  ]
 };

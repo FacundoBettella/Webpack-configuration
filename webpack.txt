@@ -74,4 +74,37 @@ BABEL:
   ...
   Corremos npm run build y vemos como ahora en dist/main.js el archivo ha cambiado.
 
+Ahora instalamos html-webpack-plugin y lo configuramos en webpack:
+...
+plugins: [
+    new HtmlWebpackPlugin({
+        inject: true,
+        // Inyecta el bundle al template HTML
+        template: "./public/index.html",
+        // Nombre final del archivo
+        filename: "./index.html"
+    })
+  ]
+...
+Y modificamos el public/index.html: Para que webpack una vez preparado "main.js" lo inserte en el dist/index.html (mimificado por estar en modo de produccion), podemos leerlo mejor corriendo "webpack --mode development" en consola.
+
+`
+En alto nivel, los LOADERS poseen 2 configuraciones principales:
+	test - propiedad que identifica cuáles archivos deberán ser transformados (expReg)
+	use  - propiedad que identifica el loader que será usado para transformar a dichos archivos
+
+PLUGINS
+Mientras los loaders transforman ciertos tipos de módulos, los plugins son utilizados para extender tareas específicas, como la optimización de paquetes, la gestión de activos y la inyección de variables de entorno.
+
+Una vez importado el plugin, podemos desear el personalizarlos a través de opciones.
+`
+
+CSS y preprocesadores:
+npm i 
+	mini-css-extract-plugin  	Para extender tareas especificas de css.
+	css-loader 					Para que webpack pueda entender css (utilizando modulos validos para wpack).
+	-D
+
+npm i stylus stylus-loader -D
+Luego configuramos el loader y plugin en webpack.config con las herramientas css mencionadas.
 
