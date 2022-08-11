@@ -2,7 +2,7 @@ Webpack: es un paquete de módulos estáticos para aplicaciones de JS modernas
 
 Loader: Te permite hacer un bundle de cualquier recurso estático más allá de JavaScript. Babel(transpilador) se usa como loader.
 
-Plugins: Extienden recursos para añadir configuraciones y particularidades de recursos externos
+Plugins: Extienden recursos para añadir configuraciones y particularidades de recursos externos.
 
 Webpack construye un gráfico de dependencias que mapea cada módulo para convertirlo en uno o más módulos
 
@@ -47,7 +47,31 @@ Ahora creamos nuestro scrip /webpack --mode production/ en packeage.json:
     "build": "webpack --mode production"
   },
 ...
-npm run build
+npm run build.
 
+BABEL:  
+	babel-loader 					
+	@babel/core 
+	
+	Los agregamos en .babelrc y lo exportamos a webpack.config module 
+	@babel/preset-env               	Para trabajar con js moderno
+	@babel/plugin-transform-runtime 	Para peticiones async/await
+
+ Añadimos configuración y reglas para trabajar con webpack. =>
+ ...
+  module: {
+    rules: [
+      {
+        // Lee los archivos con extension .js e ignora node_modules
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
+    ],
+  },
+  ...
+  Corremos npm run build y vemos como ahora en dist/main.js el archivo ha cambiado.
 
 
