@@ -1,6 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); 
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+
 
 module.exports = {
   /* Punto de entrada a la aplicacion */
@@ -34,6 +36,11 @@ module.exports = {
         use: [
             MiniCssExtractPlugin.loader, "css-loader", "stylus-loader"
         ]
+      },
+      {
+        // Loader interno a webpack, no tenemos que instalarlo. Mejora nuestros archivos png, los convierte a B64
+        test: /\.png/,
+        type: "asset/resource"
       }
     ],
   },
@@ -46,5 +53,15 @@ module.exports = {
         filename: "./index.html"
     }),
     new MiniCssExtractPlugin(),
+
+    new CopyWebpackPlugin({
+        patterns: [
+            {
+                // Copiamos la carpeta src/assets/images y la creamos en dist/ (Previamente a correr run dev, cambiamos la fuente de las imagenes en Template.js)
+                from: path.resolve(__dirname, "src", "assets/images"),
+                to: "assets/images"
+            }
+        ]
+    })
   ]
 };
