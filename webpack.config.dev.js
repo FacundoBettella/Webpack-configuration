@@ -6,14 +6,15 @@ const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   entry: "./src/index.js",
-  
+
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].[contenthash].js", 
-    assetModuleFilename: "assets/images/[hash][ext][query]", 
+    filename: "[name].[contenthash].js",
+    assetModuleFilename: "assets/images/[hash][ext][query]",
   },
 
   mode: "development",
+  // watch: true, Usamos la configuracion mediante script en package.json para que no tire warnings devServer.
 
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
@@ -47,7 +48,7 @@ module.exports = {
         use: {
           loader: "url-loader",
           options: {
-            limit: 10000, 
+            limit: 10000,
             mimetype: "aplication/font-woff",
             name: "[name].[contenthash].[ext]",
             outputPath: "./assets/fonts/",
@@ -78,4 +79,12 @@ module.exports = {
     }),
     new Dotenv(),
   ],
+
+  devServer: {
+    static: path.join(__dirname, "dist"),
+    compress: true,
+    historyApiFallback: true,
+    port: 3001,
+    open: true
+  },
 };
