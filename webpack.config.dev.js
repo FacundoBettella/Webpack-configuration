@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
   entry: "./src/index.js",
@@ -14,7 +15,8 @@ module.exports = {
   },
 
   mode: "development",
-  // watch: true, Usamos la configuracion mediante script en package.json para que no tire warnings devServer.
+  // watch: true, Comento la prop porque uso el watch mediante un script en package.json para que no tire warnings devServer.
+  devtool: "source-map",
 
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
@@ -78,6 +80,9 @@ module.exports = {
       ],
     }),
     new Dotenv(),
+    new BundleAnalyzerPlugin({
+      analyzerPort: 3010,
+    }),
   ],
 
   devServer: {
@@ -85,6 +90,6 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
     port: 3001,
-    open: true
+    open: true,
   },
 };
