@@ -243,13 +243,14 @@ body {
   grid-template-columns: minmax(auto, 1024px);
   justify-content: center;
   padding: 4em 0;
+  background-color: #3D373C;
 }
 
 .card {
 	position: relative;
 	padding: 20px 0;
 	width: 100%;
-	background: #fff;
+	background: #E7E0DB;
 	border-radius: 3px;
 	box-shadow: 0 0 1px rgba(0, 0, 0, .5);
 	overflow: hidden;
@@ -271,13 +272,13 @@ body {
 
 .card_photo {
 	position: relative;
-	background: #fff;
+	background: #655b63;
 	padding: 5px;
 	width: 190px;
 	height: 190px;
 	border-radius: 50%;
 	margin-bottom: 30px;
-	border: 1px solid rgba(0, 0, 0, .25)
+	border: 2px solid #655b63
 }
 
 .card_photo img {
@@ -286,13 +287,14 @@ body {
 }
 
 .card_title {
-	color: #999;
+	color: #24325FFF;
 	font-size: 18px;
-	margin: 0
+	margin: 0;
+	font-weight: 600;
 }
 
 .card_value {
-	color: #2c2e31;
+	color: #24325FFF;
 	font-size: 38px;
 	margin: 5px;
 	text-transform: capitalize
@@ -330,7 +332,7 @@ body {
 
 .circle svg {
   fill: none;
-  stroke: #8a3ab9;
+  stroke: #2F9331;
   stroke-linecap: round;
   stroke-width: 3;
   stroke-dasharray: 1;
@@ -346,11 +348,11 @@ body {
 
 @keyframes stroke-draw {
   from {
-    stroke: #8a3ab9;
+    stroke: #2F9331;
     stroke-dasharray: 1;
   }
   to {
-    stroke: #cd486b;
+    stroke: #8BCF21;
     transform: rotate(180deg);
     stroke-dasharray: 8;
   }

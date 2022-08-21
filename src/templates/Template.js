@@ -4,25 +4,28 @@ import twitter from "@images/twitter.png";
 import instagram from "@images/instagram.png";
 
 const Template = async () => {
-  const data = await getData();
+  let min = 1    // Starter character id.
+  let max = 826  // Total characters.
+  let randomId = Math.floor(Math.random() * (max - min + 1)) + min;
+  const data = await getData(randomId);
   const view = `
     <div class="About">
       <div class="card">
-        <div class="card_details">
           <div class="card_photo center circle">
-            <img src="${data.picture.large}" alt="${data.name.first}">
+            <img src="${data.image}" alt="${data.name}">
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="enable-background:new -580 439 577.9 194;"
               xml:space="preserve">
               <circle cx="50" cy="50" r="40" />
             </svg>
           </div>
           <p class="card_title">Hi, My name is</p>
-          <p class="card_value">${data.name.first} ${data.name.last}</p>
-        </div>
+          <p class="card_value">${data.name}</p>
+
         <div class="card_userdata">
           <ul>
-            <li>${data.email}</li>
-            <li>${data.location.country}</li>
+            <li>Spacies: ${data.spacies === undefined && "unknown"}</li>
+            <li>Status: ${data.status}</li>
+            <li>Universe location: ${data.location.name}</li>
           </ul>
         </div>
         <div class="card_social">
