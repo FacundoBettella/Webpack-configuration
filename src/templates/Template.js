@@ -18,14 +18,13 @@ const Template = async () => {
               <circle cx="50" cy="50" r="40" />
             </svg>
           </div>
-          <p class="card_title">Hi, My name is</p>
           <p class="card_value">${data.name}</p>
 
         <div class="card_userdata">
           <ul>
-            <li>Spacies: ${data.spacies === undefined && "unknown"}</li>
+            <li>Species: ${data.species}</li>
             <li>Status: ${data.status}</li>
-            <li>Universe location: ${data.location.name}</li>
+            <li>Location: ${data.location.name}</li>
           </ul>
         </div>
         <div class="card_social">
